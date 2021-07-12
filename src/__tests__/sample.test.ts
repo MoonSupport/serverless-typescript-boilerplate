@@ -1,5 +1,5 @@
-import { sum } from "../views/sum"
+import { sum } from '../views/sum'
 
-test('a + b', ()=> {
-    expect(3).toBe(sum(1,2))
+test('a + b', () => {
+  expect(3).toBe(sum(1, 2))
 })

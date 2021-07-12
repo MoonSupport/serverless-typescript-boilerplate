@@ -1,12 +1,7 @@
-import {
-    Sequelize,
-    Model,
-    DataTypes,
-  } from 'sequelize'
-
+import { Sequelize, Model, DataTypes } from 'sequelize'
 
 export class ContentModel extends Model {
-    public id: number
+  public id: number
 }
 
 export function init(sequelize: Sequelize) {

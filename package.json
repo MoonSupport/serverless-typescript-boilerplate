@@ -5,8 +5,12 @@
   "main": "handler.js",
   "scripts": {
     "deploy": "serverless deploy",
+    "test": "jest",
+    "peploy": "npm run test && npm run lint && serverless deploy --stage prod",
     "package": "serverless package",
-    "test": "jest"
+    "format": "prettier --write '**/*.{js,ts,json}'",
+    "lint": "eslint --quiet",
+    "lint:fix": "npm run lint --fix"
   },
   "author": "MoonSupport",
   "license": "MIT",
@@ -15,10 +19,16 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-typescript": "^7.10.4",
     "@types/jest": "^26.0.23",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
     "babel-loader": "^8.1.0",
     "cache-loader": "^4.1.0",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "fork-ts-checker-webpack-plugin": "^5.0.12",
     "jest": "^27.0.6",
+    "prettier": "^2.3.2",
     "serverless": "^1.77.1",
     "serverless-offline": "^6.5.0",
     "serverless-webpack": "^5.5.1",
@@ -27,7 +37,6 @@
     "webpack-node-externals": "^2.5.0"
   },
   "dependencies": {
-    "apollo-fetch": "^0.7.0",
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.6.4"
