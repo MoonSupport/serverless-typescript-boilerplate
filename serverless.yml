@@ -1,4 +1,4 @@
-service: sls-weport-test
+service: sls-test
 package:
   individually: true
 # Add the serverless-webpack plugin
@@ -8,17 +8,18 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: dev
-  region: us-east-1
+  stage: ${opt:stage,'dev'}
+  region: ${file(./config.${self:provider.stage}.json):REGION}
   lambdaHashingVersion: 20210705
 
 functions:
   hello:
     handler: src/apis/sample.hello
     environment:
-      WEPORT_PG_URI: ${env:WEPORT_PG_URI}
-      SERVERLESS_AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
-      SERVERLESS_AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
+      COMMON_CDN_S3_BUCKET: ${file(./config.${self:provider.stage}.json):COMMON_CDN_S3_BUCKET}
+      PG_URI:  ${file(./config.${self:provider.stage}.json):PG_URI}
+      SERVERLESS_AWS_ACCESS_KEY_ID:  ${file(./config.${self:provider.stage}.json):SERVERLESS_AWS_ACCESS_KEY_ID}
+      SERVERLESS_AWS_SECRET_ACCESS_KEY:  ${file(./config.${self:provider.stage}.json):SERVERLESS_AWS_SECRET_ACCESS_KEY}
 
     events:
       - schedule: rate(2 hours) #CloudWatch

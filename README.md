@@ -1,17 +1,13 @@
-# weport-serverless
-Serverless Web Framework for AWS Lambda at Weport
+# serverless boilerplate
+Serverless Web Framework With Typescript & Sequelize & jest...
 ---
 
 ## Quick Start
 
-### AWS Signup 필수 환경변수 
+### Prerequisites
 ---
 AWS_ACCESS_KEY_ID
 
 AWS_SECRET_ACCESS_KEY
 
-참고 : https://www.serverless.com/framework/docs/providers/aws/guide/credentials/
-
-### Guide
----
-https://www.serverless.com/framework/docs/providers/aws/guide/quick-start/
+ref : https://www.serverless.com/framework/docs/providers/aws/guide/credentials/
